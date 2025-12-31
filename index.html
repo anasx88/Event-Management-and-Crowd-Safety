@@ -582,7 +582,7 @@ h3.subsection-title.item-title::before{
 <div style="margin-top: 10px; font-size: 0.9em;">فقدان السيطرة بالكامل - حالة حرجة</div>
 </div>
 </div>
-<div class="alert-box">
+<div class="info-box" style="margin-top: 15px;"><strong>📚 مرجع علمي:</strong><br/>تستند مستويات الكثافة ومؤشرات فقدان السيطرة إلى أبحاث Helbing في Dynamics of Crowds، والتي توضح أن تجاوز كثافة 6 أشخاص/م² يزيد احتمال فقدان التحكم الفردي وظهور ظواهر مثل Crowd Turbulence.</div><div class="alert-box">
 <strong>📌 تحذير مهم:</strong> غياب الحوادث السابقة ليس دليل أمان
                     </div>
 <div class="danger-box" style="margin-top: 20px;">
@@ -600,7 +600,7 @@ h3.subsection-title.item-title::before{
 <div class="danger-box">
 <p>⏱️ يبدأ الاختناق خلال: <strong>30 ثانية</strong></p>
 <p style="margin-top: 10px;">☠️ الوفاة المحتملة: <strong>دقيقة إلى دقيقتين</strong></p>
-</div>
+</div><div class="info-box" style="margin-top: 15px;"><strong>📚 مرجع طبي وسلوكي:</strong><br/>هذه المؤشرات مرتبطة بحالات الاختناق الضغطي (Compressive Asphyxia) في حوادث الحشود، كما تُستخدم ضمن التحليل العلمي في أبحاث Helbing حول ديناميكية الحشود عند الكثافات الحرجة.</div>
 </div><div class="subsection">
 <h3 class="subsection-title item-title">سلامة الحشود علم متكامل</h3>
 <div class="success-box">
@@ -634,22 +634,116 @@ h3.subsection-title.item-title::before{
 </ul>
 </div>
 </div><div class="subsection">
-<h3 class="subsection-title item-title">مثال واقعي: حادثة سيول - كوريا الجنوبية</h3>
-<div class="alert-box">
-<p style="font-weight: bold; color: #dc3545; font-size: 1.2em; margin-bottom: 15px;">💔 النتيجة المأساوية: 158 وفاة</p>
-<p style="font-weight: bold; margin-top: 20px; margin-bottom: 10px;">الأسباب الرئيسية:</p>
-<ul>
-<li>⚠️ نقاط اختناق حرجة في المسارات</li>
-<li>📈 كثافة عالية غير منضبطة</li>
-<li>🚫 غياب التخطيط المسبق المناسب</li>
-<li>📉 ضعف في إدارة التدفق</li>
-</ul>
-<div style="margin-top: 20px; padding: 15px; background: rgba(220, 53, 69, 0.1); border-radius: 8px;">
-<p style="font-weight: bold;">💡 الدرس المستفاد:</p>
-<p style="margin-top: 10px;">التخطيط السليم والإدارة الاستباقية للكثافة كان من الممكن أن ينقذ الأرواح</p>
+  <h3 class="subsection-title item-title"> دراسة حالة: حادثة سيول – كوريا الجنوبية (Itaewon Crowd Crush)</h3>
+
+  <div class="info-box">
+    <p><strong>الموقع:</strong> حي Itaewon – منطقة Yongsan – سيول، كوريا الجنوبية <span style="opacity:.85;">(Wikipedia)</span></p>
+    <p style="margin-top:10px;"><strong>التاريخ:</strong> 29 أكتوبر 2022 (ليلة احتفالات Halloween) <span style="opacity:.85;">(Wikipedia)</span></p>
+    <p style="margin-top:10px;"><strong>نوع الحادث:</strong> Crowd Crush / Crowd Surge في ممر ضيّق مائل (Alley) <span style="opacity:.85;">(Wikipedia)</span></p>
+    <p style="margin-top:10px;"><strong>النتيجة:</strong> 158 وفاة (تم تداولها رسميًا في مرحلة من مراحل الإحصاء) + مئات الإصابات <span style="opacity:.85;">(Wikipedia)</span></p>
+  </div>
+
+  <div class="alert-box">
+    <p style="font-weight: bold; color: #dc3545; font-size: 1.15em; margin-bottom: 10px;">💔 ملخص سريع</p>
+    <p>حادثة Itaewon مثال “نظيف” لفهم كيف يمكن أن يقتل <strong>المكان (ممر ضيق/ميلان/مخارج قليلة)</strong> + <strong>التدفق</strong> + <strong>القرار المتأخر</strong> دون وجود شغب أو عنف مباشر.</p>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">1) خلفية الحدث (Event Context)</h4>
+    <ul style="margin-right: 20px;">
+      <li>تجمعات Halloween كبيرة وغير مركزية (بدون “منظم واحد”) مع حضور كثيف حول محطة Itaewon. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>الممرات الضيقة ومحدودية منافذ الخروج وقرب المترو والفنادق زاد “التقاطعات البشرية” في نقطة واحدة. <span style="opacity:.85;">(Wikipedia)</span></li>
+    </ul>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">2) وصف الواقعة (Incident Description)</h4>
+    <ul style="margin-right: 20px;">
+      <li>توجهت أعداد كبيرة في وقت متأخر من المساء نحو ممر ضيق قرب فندق Hamilton. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>ضغط متبادل من اتجاهات متعددة داخل ممر ضيق ومائل حوّل الحشد إلى “كتلة ضغط”؛ سقط أشخاص وتكدسوا فوق بعضهم. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>أعاق الازدحام وصول الإسعاف والفرق بسرعة، وتأخر استخراج المصابين من قلب التجمع. <span style="opacity:.85;">(Wikipedia)</span></li>
+    </ul>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">3) النتائج (Outcomes)</h4>
+    <ul style="margin-right: 20px;">
+      <li>وفيات جماعية نتيجة Compressive/Traumatic Asphyxia (اختناق ضغطي/انضغاط صدري) + إصابات حرجة متعددة. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>مئات الإصابات بدرجات مختلفة. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>تصنيف الحادث ككارثة حشود واسعة النطاق وفتح تحقيقات ومساءلات واسعة. <span style="opacity:.85;">(Wikipedia)</span></li>
+    </ul>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">4) التحليل التشغيلي (Operational Analysis)</h4>
+
+    <div class="info-box">
+      <p style="font-weight:bold; margin-bottom:8px;">4.1 عامل المكان (Spatial Risk / Bottleneck)</p>
+      <ul style="margin-right: 20px;">
+        <li>ممر ضيق + ميلان + قلة مخارج جانبية = بيئة مثالية لتكوّن الانضغاط عند أي زيادة مفاجئة في التدفق. <span style="opacity:.85;">(Wikipedia)</span></li>
+        <li>أي “توقف” بسيط في المقدمة يتحول خلال ثوانٍ إلى تراكم ضغطي خلفي (Back Pressure).</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <p style="font-weight:bold; margin-bottom:8px;">4.2 فشل إدارة التدفق والكثافة (Flow & Density Control Failure)</p>
+      <ul style="margin-right: 20px;">
+        <li>لم تُفعّل إجراءات فعّالة لتقليل/تجزئة التدفق نحو نقطة الاختناق.</li>
+        <li>غياب فصل تيارات الحركة (ذهاب/إياب) داخل نقطة ضيقة يزيد احتمال الانسداد ثم الانهيار.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <p style="font-weight:bold; margin-bottom:8px;">4.3 المؤشرات التحذيرية المبكرة (Early Warning Signals)</p>
+      <ul style="margin-right: 20px;">
+        <li>وردت تقارير عن بلاغات طوارئ مبكرة حول خطورة الازدحام قبل وقت الحادث بساعات، لكن التدخل لم يكن كافيًا لمنع التدهور. <span style="opacity:.85;">(Wikipedia)</span></li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <p style="font-weight:bold; margin-bottom:8px;">4.4 تحديات الاستجابة للطوارئ (Emergency Response Challenges)</p>
+      <ul style="margin-right: 20px;">
+        <li>الازدحام أعاق وصول المركبات والفرق إلى مركز الانضغاط، وتأخر الإخلاء والاستخراج. <span style="opacity:.85;">(Wikipedia)</span></li>
+        <li>“الزمن الذهبي” في هذا النوع من الإصابات قصير جدًا، لذلك التأخير يضاعف الخسائر. <span style="opacity:.85;">(Wikipedia)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">5) التحليل الإداري والحوكمة (Governance & Preparedness)</h4>
+    <ul style="margin-right: 20px;">
+      <li>حتى إن لم تكن الفعالية “بتذكرة ومنظم واحد”، فإن التجمعات المتوقعة عاليًا تحتاج خطة تشغيل (Crowd Management Plan) تركّز على: Bottlenecks، فصل التدفقات، حدود الكثافة، وآليات إيقاف/تحويل المسارات. <span style="opacity:.85;">(Wikipedia)</span></li>
+      <li>النقد العام والتحقيقات ركزت على نقص التحضير والتنسيق وعدم تفعيل إجراءات وقائية رغم توقعات الحشود. <span style="opacity:.85;">(Wikipedia)</span></li>
+    </ul>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">6) الاستنباطات التشغيلية (Lessons Learned)</h4>
+    <ul style="margin-right: 20px;">
+      <li>Crowd Crush ليس “تدافع عشوائي”: هو انهيار في نظام الحركة داخل مساحة غير متسامحة (Non-forgiving space).</li>
+      <li>الوقاية تُبنى قبل الحادث بساعات: ضبط التدفقات حول نقاط الاختناق أهم من محاولة الإنقاذ بعد حدوث الانضغاط.</li>
+      <li>إدارة الحشود تحتاج قرارًا ميدانيًا سياديًا: تحويل المسارات/إغلاق نقاط/تقليل التدفق فور ظهور مؤشرات الخطر.</li>
+    </ul>
+  </div>
+
+  <div class="subsection" style="padding: 18px;">
+    <h4 style="color:#1e3c72; font-size:1.1em; margin-bottom:10px;">7) إجراءات وقائية كان يجب تطبيقها (Preventive Controls)</h4>
+    <ul style="margin-right: 20px;">
+      <li>تحديد نقاط الاختناق مسبقًا (Bottleneck Mapping) ووضع “مراقبين كثافة” عندها.</li>
+      <li>فصل اتجاهات الحركة (One-way routing) أو حواجز تنظيمية تمنع التيارات المتعاكسة داخل الممرات الضيقة.</li>
+      <li>تفعيل تحويل مسار مبكر (Diversion & Metering) قبل الوصول لمرحلة الانضغاط.</li>
+      <li>جاهزية إسعافية قريبة مع ممرات طوارئ واضحة لا يمكن غلقها بالحشود.</li>
+      <li>نظام تصعيد قرار واضح: متى نغلق/متى نوقف التدفق/متى نعلن حالة طوارئ.</li>
+    </ul>
+  </div>
+
+  <div class="success-box" style="margin-top: 18px;">
+    <p style="font-weight:bold; margin-bottom:10px;">إضافة تدريبية (سؤال اختباري صعب)</p>
+    <p><strong>سؤال:</strong> ما العامل الحاسم الذي يحوّل ازدحامًا عاليًا إلى Crowd Crush خلال دقائق؟</p>
+    <p style="margin-top:10px;"><strong>إجابة نموذجية:</strong> وجود نقطة اختناق غير متسامحة (ممر ضيق/ميلان/مخارج قليلة) مع تدفق مستمر من الخلف وعدم تفعيل Metering/Diversion مبكرًا؛ عندها يبدأ السقوط ثم التكدس والاختناق الضغطي.</p>
+  </div>
 </div>
-</div>
-</div></div></div><div class="section" style="--unit-color:#007AFF;"><h2 class="section-title"><span class="section-number">📘 الوحدة الثانية</span> التخطيط المسبق وتنظيم الفعاليات</h2><div class="subsection"><h3 class="subsection-title">🔹 2.1 تحليل نوع الفعالية وتحديد الأهداف</h3><div class="subsection">
+</div></div><div class="section" style="--unit-color:#007AFF;"><h2 class="section-title"><span class="section-number">📘 الوحدة الثانية</span> التخطيط المسبق وتنظيم الفعاليات</h2><div class="subsection"><h3 class="subsection-title">🔹 2.1 تحليل نوع الفعالية وتحديد الأهداف</h3><div class="subsection">
 <h3 class="subsection-title item-title">لماذا التخطيط المسبق؟</h3>
 <div class="success-box">
 <strong>💡 المبدأ الأساسي:</strong>
@@ -694,7 +788,7 @@ h3.subsection-title.item-title::before{
 </div>
 </div><div class="subsection">
 <h3 class="subsection-title item-title">أدوات التخطيط الاحترافية</h3>
-<div class="tools-grid">
+<div class="info-box" style="margin-top: 15px;"><strong>📚 مرجع منهجي:</strong><br/>يعتمد استخدام <strong>Risk Matrix</strong> وتقييم المخاطر والتخطيط الاستباقي على مبادئ وإرشادات HSE (Health and Safety Executive) في إدارة المخاطر والسلامة المهنية، وهو ما يدعم احترافية المخرجات ويجعلها قابلة للتدقيق.</div><div class="tools-grid">
 <div class="tool-card">
 <div class="tool-title">📊 Risk Matrix</div>
 <p>تقييم المخاطر وخطط الطوارئ</p>
@@ -802,7 +896,7 @@ h3.subsection-title.item-title::before{
 <div class="info-box" style="margin-top: 15px;">
 <strong>📊 معدل التدفق المرجعي الشائع:</strong>
 <p style="margin-top: 10px; font-size: 1.2em; text-align: center; color: #1e3c72; font-weight: bold;">66-82 شخص/م/دقيقة</p>
-</div>
+</div><div class="info-box" style="margin-top: 15px;"><strong>📚 مرجع معياري:</strong><br/>عند الاستدلال بعرض الممرات/المخارج أو معدلات التدفق وسعات الإخلاء، يُستحسن ربطها بـ <strong>NFPA 101 – Life Safety Code</strong> لضمان أن الأرقام ليست اجتهادًا شخصيًا بل منسجمة مع معيار دولي معتمد.</div>
 </div><div class="subsection">
 <h3 class="subsection-title item-title">قواعد تشغيلية حرجة</h3>
 <div class="danger-box">
@@ -936,6 +1030,7 @@ h3.subsection-title.item-title::before{
 <li>التخطيط الأمني المتقدم</li>
 </ul>
 </div>
+<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><p style="font-weight: bold; margin-bottom: 10px;">🌍 المراجع الدولية المعتمدة</p><ul style="text-align: right; list-style-position: inside;"><li>NFPA – National Fire Protection Association (NFPA 101 – Life Safety Code)</li><li>HSE – Health and Safety Executive (UK)</li><li>Helbing – Dynamics of Crowds Research</li></ul></div>
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 10px; margin: 30px 0;">
 <p style="font-size: 1.3em; font-weight: bold; margin-bottom: 15px;">✍️ إعداد</p>
 <p style="font-size: 1.4em; font-weight: bold; margin-bottom: 10px;">أنس العضيبي</p>
