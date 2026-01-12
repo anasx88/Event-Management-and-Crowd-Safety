@@ -469,6 +469,89 @@ h3.subsection-title.item-title::before{
     background: var(--unit-color);
     box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
+
+
+
+/* === Practice Quizzes Row (Second line) === */
+.practice-quizzes {
+  margin: 14px 0 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f7faf7;
+  border: 1px solid #e3efe3;
+}
+
+.practice-quizzes .pq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: #1f3a2e;
+}
+
+.practice-quizzes .pq-title .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #2ecc71;
+}
+
+.practice-quizzes .pq-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.practice-quizzes a.pq-card {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 12px 10px;
+  background: #ffffff;
+  border: 1px solid #e7ece7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.practice-quizzes a.pq-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+
+.practice-quizzes .pq-emoji {
+  font-size: 22px;
+}
+
+.practice-quizzes .pq-text {
+  font-weight: 800;
+  color: #173024;
+  line-height: 1.1;
+}
+
+.practice-quizzes .pq-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6b62;
+}
+
+@media (max-width: 780px) {
+  .practice-quizzes .pq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* === Infographic Consistency Fix === */
+.infographic-card{ padding: 14px; }
+.infographic-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
 </style>
 </head>
 <body>
@@ -498,6 +581,38 @@ h3.subsection-title.item-title::before{
 <span class="day-txt">اليوم الخامس</span>
 </a>
 </div>
+
+<!-- =========================
+     Practice Quizzes (Row 2)
+========================== -->
+<section class="practice-quizzes" aria-label="اختبارات تجريبية">
+  <div class="pq-title">
+    <span class="dot" aria-hidden="true"></span>
+    <span>اختبارات تجريبية</span>
+  </div>
+
+  <div class="pq-grid">
+    <a class="pq-card" href="quiz1.html">
+      <span class="pq-emoji">🧪</span>
+      <span class="pq-text">الدفعة الأولى<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz2.html">
+      <span class="pq-emoji">🧪</span>
+      <span class="pq-text">الدفعة الثانية<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz3.html">
+      <span class="pq-emoji">🧠</span>
+      <span class="pq-text">الدفعة الثالثة<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz4.html">
+      <span class="pq-emoji">🧠</span>
+      <span class="pq-text">الدفعة الرابعة<span class="pq-sub">70 سؤال</span></span>
+    </a>
+  </div>
+</section>
 <div class="header">
 <h1>📘 الملخص التدريبي المعتمد</h1>
 <p>إدارة الفعاليات وسلامة الحشود</p>
@@ -1154,6 +1269,15 @@ h3.subsection-title.item-title::before{
                         🎓 النجاح في إدارة الحشود يبدأ بالفهم الصحيح للمفاهيم وينتهي بالتطبيق الدقيق للمعايير
                     </p>
 </div>
+
+<section class="section" id="infographic">
+            <h2 class="section-title">🖼️ إنفوجرافيك اليوم</h2>
+            <div class="card infographic-card">
+                <img class="infographic-img" src="Day1.png" alt="Infographic - Day 1">
+            </div>
+        </section>
+
+
 </div></div>
 <!-- التذييل: المصدر التعليمي -->
 <div class="footer">
@@ -1197,6 +1321,8 @@ h3.subsection-title.item-title::before{
                     © 2025 - دليل إدارة الفعاليات وسلامة الحشود
                 </p>
 </div>
+
+        
 </div>
 </div>
 </body>
