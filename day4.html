@@ -442,7 +442,134 @@
             .days-bar{display:none;}
         }
 
-    </style>
+    /* === Practice Tests Bar (Injected) === */
+        .tests-bar{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            padding:14px 18px;
+            background: rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .tests-title{
+            font-weight:800;
+            letter-spacing:0.2px;
+            color:#ffffff;
+            opacity:0.95;
+            display:flex;
+            align-items:center;
+            gap:8px;
+        }
+        .tests-links{
+            display:flex;
+            justify-content:center;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        .test-btn{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-width:160px;
+            padding:10px 14px;
+            border-radius:16px;
+            text-decoration:none;
+            font-weight:800;
+            border:1px solid rgba(255,255,255,0.20);
+            background: rgba(255,255,255,0.10);
+            color:#ffffff;
+            transition: transform .12s ease, background .12s ease;
+        }
+        .test-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.14); }
+        .test-btn.t1{ border-color: rgba(46, 204, 113, 0.45); }
+        .test-btn.t2{ border-color: rgba(52, 152, 219, 0.45); }
+        .test-btn.t3{ border-color: rgba(155, 89, 182, 0.45); }
+        .test-btn.t4{ border-color: rgba(241, 196, 15, 0.45); }
+
+        /* === Infographic (Injected) === */
+        .infographic-card{ padding: 14px; }
+        .infographic-img{
+            width:100%;
+            height:auto;
+            display:block;
+            border-radius:16px;
+        }
+
+
+
+/* === Practice Quizzes Row (Second line) === */
+.practice-quizzes {
+  margin: 14px 0 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f7faf7;
+  border: 1px solid #e3efe3;
+}
+
+.practice-quizzes .pq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: #1f3a2e;
+}
+
+.practice-quizzes .pq-title .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #2ecc71;
+}
+
+.practice-quizzes .pq-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.practice-quizzes a.pq-card {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 12px 10px;
+  background: #ffffff;
+  border: 1px solid #e7ece7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.practice-quizzes a.pq-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+
+.practice-quizzes .pq-emoji {
+  font-size: 22px;
+}
+
+.practice-quizzes .pq-text {
+  font-weight: 800;
+  color: #173024;
+  line-height: 1.1;
+}
+
+.practice-quizzes .pq-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6b62;
+}
+
+@media (max-width: 780px) {
+  .practice-quizzes .pq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+</style>
 </head>
 <body>
 <button class="print-button" onclick="window.print()">
@@ -472,6 +599,38 @@
     <span class="day-txt">اليوم الخامس</span>
   </a>
 </div>
+
+<!-- =========================
+     Practice Quizzes (Row 2)
+========================== -->
+<section class="practice-quizzes" aria-label="اختبارات تجريبية">
+  <div class="pq-title">
+    <span class="dot" aria-hidden="true"></span>
+    <span>اختبارات تجريبية</span>
+  </div>
+
+  <div class="pq-grid">
+    <a class="pq-card" href="quiz1.html">
+      <span class="pq-emoji">🧪</span>
+      <span class="pq-text">الدفعة الأولى<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz2.html">
+      <span class="pq-emoji">🧪</span>
+      <span class="pq-text">الدفعة الثانية<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz3.html">
+      <span class="pq-emoji">🧠</span>
+      <span class="pq-text">الدفعة الثالثة<span class="pq-sub">45 سؤال</span></span>
+    </a>
+
+    <a class="pq-card" href="quiz4.html">
+      <span class="pq-emoji">🧠</span>
+      <span class="pq-text">الدفعة الرابعة<span class="pq-sub">70 سؤال</span></span>
+    </a>
+  </div>
+</section>
 
 <div class="header">
 <h1>📘 الملخص التدريبي المعتمد — اليوم 4</h1>
@@ -1632,6 +1791,76 @@
 
   </div>
 
+
+<!-- 15) إضافات إلزامية في نهاية اليوم الرابع -->
+  <div class="section" style="color:#000;">
+    <h2 class="section-title"><span class="section-number">15</span> إضافات إلزامية في نهاية اليوم الرابع</h2>
+
+    <div class="subsection">
+      <h3 class="subsection-title">1) سيناريو تطبيقي بسيط</h3>
+      <div class="alert-box" style="color:#000;">
+        <p><strong>حدث افتراضي:</strong> فعالية خارجية متعددة الثقافات (8,000 زائر) + فرق ميدانية (200) + ازدحام عند بوابة رئيسية.</p>
+        <p><strong>السؤال:</strong> أين ينهار اليوم الرابع لو أُهمل؟</p>
+        <ul>
+          <li>ضيافة ضعيفة → توتر/احتكاك → مقاومة للتوجيه.</li>
+          <li>غياب احتواء الطوارئ النفسية → هلع ينتشر بلا سبب مادي.</li>
+          <li>فريق منهك/غير محفّز → قرارات متأخرة وأخطاء بشرية.</li>
+          <li>لا Debriefing ولا Kaizen → تكرار الأخطاء في الفعالية التالية.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">2) قاموس مصطلحات اليوم الرابع (Glossary)</h3>
+      <div class="info-box" style="color:#000;">
+        <ul>
+          <li><strong>Hospitality:</strong> الضيافة كأداة تشغيلية لإدارة السلوك وتخفيف التوتر.</li>
+          <li><strong>Debriefing:</strong> جلسة مصارحة منظمة لاستخلاص ما حدث وتوثيق الدروس بدون لوم.</li>
+          <li><strong>Kaizen:</strong> تحسين مستمر بخطوات صغيرة ثابتة تمنع تراكم الأخطاء وتبنّي SOPs.</li>
+          <li><strong>Cultural Sensitivity:</strong> حساسية ثقافية تمنع سوء الفهم والتصعيد وتحمي السمعة.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">3) ربط بالمراجع العلمية (تأصيل سريع)</h3>
+      <div class="info-box" style="color:#000;">
+        <ul>
+          <li><strong>HSE / Human Factors:</strong> السلوك البشري، الإرهاق، وضوح الأدوار، وتأثيرها على الأخطاء الميدانية.</li>
+          <li><strong>ISO / Kaizen:</strong> التحسين المستمر، التوثيق، وإجراءات التشغيل القياسية (SOPs).</li>
+          <li><strong>مبادئ إدارة السلوك الجمعي:</strong> أثر التواصل والاحترام على الالتزام والتعاون وتخفيف المخاطر.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">4) حدود نطاق اليوم الرابع (Scope Boundaries)</h3>
+      <div class="alert-box" style="color:#000;">
+        <ul>
+          <li>لا نعلّم علاجًا نفسيًا؛ ندرّب على <strong>الاحتواء الأولي</strong> وإدارة الموقف دون تصعيد.</li>
+          <li>لا نحل نزاعات قانونية؛ ندرّب على <strong>القرار الإداري</strong> وحفظ الأدلة والتوثيق.</li>
+          <li>نركّز على: الضيافة/الثقافة/التحفيز/المصارحة/التحسين المستمر كمنظومة تمنع تكرار الأخطاء.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="alert-box" style="margin-top: 30px;">
+  <p style="font-weight: bold; font-size: 1.1em; text-align: center;">
+    🎓 النجاح في إدارة الحشود يبدأ بالفهم الصحيح للمفاهيم وينتهي بالتطبيق الدقيق للمعايير
+  </p>
+</div>
+
+<section class="section" id="infographic">
+            <h2 class="section-title">🖼️ إنفوجرافيك اليوم</h2>
+            <div class="card infographic-card">
+                <img class="infographic-img" src="Day4.png" alt="Infographic - Day 4">
+            </div>
+        </section>
+
+
+
+
 <!-- التذييل: المصدر التعليمي -->
 <div class="footer">
 <div class="footer-section">
@@ -1686,59 +1915,10 @@
 </div>
 
 
-  <!-- 15) إضافات إلزامية في نهاية اليوم الرابع -->
-  <div class="section">
-    <h2 class="section-title"><span class="section-number">15</span> إضافات إلزامية في نهاية اليوم الرابع</h2>
+  
 
-    <div class="subsection">
-      <h3 class="subsection-title">1) سيناريو تطبيقي بسيط</h3>
-      <div class="alert-box">
-        <p><strong>حدث افتراضي:</strong> فعالية خارجية متعددة الثقافات (8,000 زائر) + فرق ميدانية (200) + ازدحام عند بوابة رئيسية.</p>
-        <p><strong>السؤال:</strong> أين ينهار اليوم الرابع لو أُهمل؟</p>
-        <ul>
-          <li>ضيافة ضعيفة → توتر/احتكاك → مقاومة للتوجيه.</li>
-          <li>غياب احتواء الطوارئ النفسية → هلع ينتشر بلا سبب مادي.</li>
-          <li>فريق منهك/غير محفّز → قرارات متأخرة وأخطاء بشرية.</li>
-          <li>لا Debriefing ولا Kaizen → تكرار الأخطاء في الفعالية التالية.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="subsection">
-      <h3 class="subsection-title">2) قاموس مصطلحات اليوم الرابع (Glossary)</h3>
-      <div class="info-box">
-        <ul>
-          <li><strong>Hospitality:</strong> الضيافة كأداة تشغيلية لإدارة السلوك وتخفيف التوتر.</li>
-          <li><strong>Debriefing:</strong> جلسة مصارحة منظمة لاستخلاص ما حدث وتوثيق الدروس بدون لوم.</li>
-          <li><strong>Kaizen:</strong> تحسين مستمر بخطوات صغيرة ثابتة تمنع تراكم الأخطاء وتبنّي SOPs.</li>
-          <li><strong>Cultural Sensitivity:</strong> حساسية ثقافية تمنع سوء الفهم والتصعيد وتحمي السمعة.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <h3 class="subsection-title">3) ربط بالمراجع العلمية (تأصيل سريع)</h3>
-      <div class="info-box">
-        <ul>
-          <li><strong>HSE / Human Factors:</strong> السلوك البشري، الإرهاق، وضوح الأدوار، وتأثيرها على الأخطاء الميدانية.</li>
-          <li><strong>ISO / Kaizen:</strong> التحسين المستمر، التوثيق، وإجراءات التشغيل القياسية (SOPs).</li>
-          <li><strong>مبادئ إدارة السلوك الجمعي:</strong> أثر التواصل والاحترام على الالتزام والتعاون وتخفيف المخاطر.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <h3 class="subsection-title">4) حدود نطاق اليوم الرابع (Scope Boundaries)</h3>
-      <div class="alert-box">
-        <ul>
-          <li>لا نعلّم علاجًا نفسيًا؛ ندرّب على <strong>الاحتواء الأولي</strong> وإدارة الموقف دون تصعيد.</li>
-          <li>لا نحل نزاعات قانونية؛ ندرّب على <strong>القرار الإداري</strong> وحفظ الأدلة والتوثيق.</li>
-          <li>نركّز على: الضيافة/الثقافة/التحفيز/المصارحة/التحسين المستمر كمنظومة تمنع تكرار الأخطاء.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
+        
 </div>
 </div>
 </body>
