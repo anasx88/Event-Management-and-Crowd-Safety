@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>دليل إدارة الفعاليات وسلامة الحشود</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .print-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+
+        .subsection {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .subsection-title {
+            font-size: 1.3em;
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-right: 4px solid #667eea;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .danger-box {
+            background: #f8d7da;
+            border-right: 4px solid #dc3545;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-right: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        ul {
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-right: 10px;
+        }
+
+        .density-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .density-card {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .density-low {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .density-medium {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+        }
+
+        .density-high {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .resource-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .crowd-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .crowd-type-card {
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            border-right: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .crowd-type-title {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            background: #1e3c72;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .footer-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .quote {
+            font-size: 1.3em;
+            font-style: italic;
+            color: #667eea;
+            text-align: center;
+            padding: 30px;
+            margin: 30px 0;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border-radius: 15px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 4px solid #28a745;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .tool-title {
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 30px;
+            }
+
+            .subsection {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .header {
+                page-break-after: avoid;
+            }
+
+            .section-title {
+                page-break-after: avoid;
+            }
+
+            .density-levels,
+            .resources-grid,
+            .crowd-types-grid,
+            .tools-grid {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .print-button {
+                font-size: 0.9em;
+                padding: 12px 20px;
+            }
+        }
+    
+        /* ===== برنامج 5 أيام: شريط التنقل ===== */
+        .day-nav{
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            flex-wrap:wrap;
+            padding:15px 20px;
+            background: rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .day-nav a{
+            text-decoration:none;
+            padding:10px 16px;
+            border-radius:999px;
+            background: rgba(255,255,255,0.18);
+            color:#fff;
+            font-weight:700;
+            transition: all 0.2s ease;
+        }
+        .day-nav a:hover{
+            background: rgba(255,255,255,0.28);
+            transform: translateY(-1px);
+        }
+        .day-nav a.active{
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.35);
+        }
+
+        @media print{
+            .day-nav{display:none;}
+        }
+
+    
+        /* ===== برنامج 5 أيام: أيقونات تنقل أعلى الصفحة ===== */
+        .days-bar{
+            display:flex;
+            justify-content:center;
+            gap:12px;
+            flex-wrap:wrap;
+            padding:14px 18px;
+            background: rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .day-btn{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            width:120px;
+            min-height:74px;
+            padding:10px 12px;
+            border-radius:18px;
+            text-decoration:none;
+            background: rgba(255,255,255,0.16);
+            color:#fff;
+            font-weight:800;
+            transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+        }
+        .day-btn:hover{
+            background: rgba(255,255,255,0.24);
+            transform: translateY(-2px);
+        }
+        .day-ico{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:36px;
+            height:36px;
+            border-radius:12px;
+            background: rgba(0,0,0,0.18);
+            margin-bottom:6px;
+            font-size:20px;
+            line-height:1;
+        }
+        .day-txt{
+            font-size:14px;
+            line-height:1.1;
+            text-align:center;
+        }
+        .day-btn.active{
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.35);
+        }
+        .day-btn.active .day-ico{
+            background: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 560px){
+            .day-btn{width:104px;}
+        }
+        @media print{
+            .days-bar{display:none;}
+        }
+
+    /* === Practice Tests Bar (Injected) === */
+        .tests-bar{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            padding:14px 18px;
+            background: rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .tests-title{
+            font-weight:800;
+            letter-spacing:0.2px;
+            color:#ffffff;
+            opacity:0.95;
+            display:flex;
+            align-items:center;
+            gap:8px;
+        }
+        .tests-links{
+            display:flex;
+            justify-content:center;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        .test-btn{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-width:160px;
+            padding:10px 14px;
+            border-radius:16px;
+            text-decoration:none;
+            font-weight:800;
+            border:1px solid rgba(255,255,255,0.20);
+            background: rgba(255,255,255,0.10);
+            color:#ffffff;
+            transition: transform .12s ease, background .12s ease;
+        }
+        .test-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.14); }
+        .test-btn.t1{ border-color: rgba(46, 204, 113, 0.45); }
+        .test-btn.t2{ border-color: rgba(52, 152, 219, 0.45); }
+        .test-btn.t3{ border-color: rgba(155, 89, 182, 0.45); }
+        .test-btn.t4{ border-color: rgba(241, 196, 15, 0.45); }
+
+        /* === Infographic (Injected) === */
+        .infographic-card{ padding: 14px; }
+        .infographic-img{
+            width:100%;
+            height:auto;
+            display:block;
+            border-radius:16px;
+        }
+
+/* === Practice Quizzes Row (Second line) === */
+.practice-quizzes {
+  margin: 14px 0 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f7faf7;
+  border: 1px solid #e3efe3;
+}
+
+.practice-quizzes .pq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: #1f3a2e;
+}
+
+.practice-quizzes .pq-title .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #2ecc71;
+}
+
+.practice-quizzes .pq-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.practice-quizzes a.pq-card {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 12px 10px;
+  background: #ffffff;
+  border: 1px solid #e7ece7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.practice-quizzes a.pq-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+}
+
+.practice-quizzes .pq-emoji {
+  font-size: 22px;
+}
+
+.practice-quizzes .pq-text {
+  font-weight: 800;
+  color: #173024;
+  line-height: 1.1;
+}
+
+.practice-quizzes .pq-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6b62;
+}
+
+@media (max-width: 780px) {
+  .practice-quizzes .pq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* === Module Color Variants (Aligned with Day 4 Design System) === */
+.section.module-blue{ border-right-color:#667eea; }
+.section.module-blue .section-title{ border-bottom-color:#667eea; }
+.section.module-blue .section-number{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+.section.module-green{ border-right-color:#28a745; }
+.section.module-green .section-title{ border-bottom-color:#28a745; }
+.section.module-green .section-number{ background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+
+.section.module-amber{ border-right-color:#ffc107; }
+.section.module-amber .section-title{ border-bottom-color:#ffc107; }
+.section.module-amber .section-number{ background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); }
+
+.section.module-red{ border-right-color:#dc3545; }
+.section.module-red .section-title{ border-bottom-color:#dc3545; }
+.section.module-red .section-number{ background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); }
+
+/* ===== Day5 Module Axis Boxes (Aligned with Day4 pattern) ===== */
+.module-stack{
+  background: transparent !important;
+  border-right: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.axis-stack{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.axis-box{
+  background: var(--axis-bg, #ffffff);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-right: 6px solid var(--axis-color, #667eea);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+.axis-box h5{
+  margin: 0 0 10px !important;
+  font-size: 1.15em;
+  font-weight: 800;
+  color: var(--axis-title, #1e3c72);
+}
+.axis-intro h4{
+  margin: 0 0 10px !important;
+  font-size: 1.25em;
+  font-weight: 900;
+}
+.axis-intro p, .axis-box p{ margin: 8px 0; }
+.axis-box ul, .axis-box ol{ margin-top: 8px; }
+
+/* Module color mapping (Unit 13 / Unit 14) */
+.section.module-green .axis-box{
+  --axis-color: #28a745;
+  --axis-bg: rgba(40, 167, 69, 0.08);
+  --axis-title: #1f6f3a;
+}
+.section.module-amber .axis-box{
+  --axis-color: #ffc107;
+  --axis-bg: rgba(255, 193, 7, 0.10);
+  --axis-title: #7a5a00;
+}
+/* Keep semantic boxes inside axis boxes as-is */
+.axis-box .alert-box, .axis-box .info-box, .axis-box .success-box, .axis-box .danger-box{
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+<button class="print-button" onclick="window.print()">
+        🖨️ طباعة الدليل كـ PDF
+    </button>
+<div class="container">
+<div aria-label="تنقّل أيام البرنامج" class="days-bar">
+<a class="day-btn" href="index.html" title="اليوم الأول">
+<span aria-hidden="true" class="day-ico">①</span>
+<span class="day-txt">اليوم الأول</span>
+</a>
+<a class="day-btn" href="day2.html" title="اليوم الثاني">
+<span aria-hidden="true" class="day-ico">②</span>
+<span class="day-txt">اليوم الثاني</span>
+</a>
+<a class="day-btn" href="day3.html" title="اليوم الثالث">
+<span aria-hidden="true" class="day-ico">③</span>
+<span class="day-txt">اليوم الثالث</span>
+</a>
+<a class="day-btn" href="day4.html" title="اليوم الرابع">
+<span aria-hidden="true" class="day-ico">④</span>
+<span class="day-txt">اليوم الرابع</span>
+</a>
+<a class="day-btn" href="day5.html" title="اليوم الخامس">
+<span aria-hidden="true" class="day-ico">⑤</span>
+<span class="day-txt">اليوم الخامس</span>
+</a>
+
+<a class="day-btn" active href="scenarios.html" title="السيناريوهات التطبيقية">
+  <span aria-hidden="true" class="day-ico">🧩</span>
+  <span class="day-txt">السيناريوهات</span>
+</a>
+
+</div>
+<!-- =========================
+     Practice Quizzes (Row 2)
+========================== -->
+<section aria-label="اختبارات تجريبية" class="practice-quizzes">
+<div class="pq-title">
+<span aria-hidden="true" class="dot"></span>
+<span>اختبارات تجريبية</span>
+</div>
+<div class="pq-grid">
+<a class="pq-card" href="quiz1.html">
+<span class="pq-emoji">🧪</span>
+<span class="pq-text">الدفعة الأولى<span class="pq-sub">45 سؤال</span></span>
+</a>
+<a class="pq-card" href="quiz2.html">
+<span class="pq-emoji">🧪</span>
+<span class="pq-text">الدفعة الثانية<span class="pq-sub">45 سؤال</span></span>
+</a>
+<a class="pq-card" href="quiz3.html">
+<span class="pq-emoji">🧠</span>
+<span class="pq-text">الدفعة الثالثة<span class="pq-sub">45 سؤال</span></span>
+</a>
+<a class="pq-card" href="quiz4.html">
+<span class="pq-emoji">🧠</span>
+<span class="pq-text">الدفعة الرابعة<span class="pq-sub">70 سؤال</span></span>
+</a>
+</div>
+</section>
+<div class="header">
+<h1>🧩 السيناريوهات التطبيقية (مواد إثرائية)</h1>
+<p>مرفقات تطبيقية اختيارية — غير خاضعة للتقييم في اختبار MCQ</p>
+</div>
+<div class="content">
+
+<div class="section module-blue">
+  <h2 class="section-title"><span class="section-number">📌</span> توضيح مهم</h2>
+  <div class="subsection">
+    <div class="info-box">
+      <p><b>نعم، معك حق:</b> النسخة السابقة كانت “مختصرة” أكثر من اللازم.</p>
+      <p>هذه النسخة تعرض السيناريوهات <b>بشكل كامل من حيث المكونات</b> (خلفية، أهداف، أدوار، تسلسل زمني، نقاط قرار، إجراءات متوقعة، رسائل، توثيق، Debrief) — بحيث يستفيد المتدرب فعليًا دون توزيع ملفات العروض.</p>
+      <p><b>تنبيه تقييم:</b> هذه السيناريوهات <b>مواد إثرائية غير خاضعة للتقييم (MCQ)</b>، لكنها تساعد المتدرب على فهم الأسئلة النظرية بصورة أعمق.</p>
+      <p><b>المرجع:</b> WHO (2025) Mass Gatherings Simulation Exercise Scenarios — مرخّص CC BY-NC-SA 3.0 IGO. تم هنا إعادة صياغة المحتوى بالعربية وتوسيعه تعليمياً دون إعادة نشر الشرائح.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Scenario 1 -->
+<div class="section module-green">
+  <h2 class="section-title"><span class="section-number">①</span> سيناريو: تفشّي مرض منقول بالغذاء (Foodborne Outbreak)</h2>
+  <div class="subsection">
+    <div class="axis-box" style="--axis-color:#28a745;--axis-bg:rgba(40,167,69,0.08);--axis-title:#1f6f3a;">
+      <h5>أ) الخلفية التشغيلية</h5>
+      <p>فعالية كبيرة متعددة نقاط بيع غذائي. خلال ساعة–ساعتين تبدأ البلاغات من نقاط إسعاف/عيادات داخل الموقع عن حالات غثيان/إسهال/قيء تتزايد تدريجيًا. تظهر مؤشرات أن الحالات تشترك في توقيت تناول الطعام أو في نقطة بيع محددة.</p>
+
+      <h5 style="margin-top:12px;">ب) الهدف من التمرين</h5>
+      <ul>
+        <li>رفع الإنذار من “حالات فردية” إلى “اشتباه تفشّي” عبر <b>عتبات واضحة</b>.</li>
+        <li>تنسيق الأدوار بين (صحة عامة/إسعاف/المنظّم/سلامة غذاء) دون تضارب معلومات.</li>
+        <li>جمع الحد الأدنى من البيانات بسرعة لبناء قرار (عزل مصدر/إيقاف نقطة/توعية/إحالة).</li>
+        <li>تواصل جماهيري يقلل الشائعات ويمنع هلعًا غير مبرر.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ج) الأدوار (أمثلة)</h5>
+      <ul>
+        <li><b>قائد الاستجابة الصحية:</b> يقرر مستوى الاستجابة ويرفع البلاغ الرسمي.</li>
+        <li><b>نقطة إسعاف/عيادة:</b> رصد الحالات + نموذج بيانات مختصر.</li>
+        <li><b>الصحة العامة/الوبائيات:</b> تجميع البيانات وتحليل نمط الحالات.</li>
+        <li><b>المنظّم/العمليات:</b> التحكم في نقاط البيع والحركة داخل الموقع.</li>
+        <li><b>التواصل/الإعلام:</b> صياغة رسالة موحّدة للجمهور.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">د) تسلسل زمني مقترح (TTX)</h5>
+      <div class="alert-box">
+        <ul>
+          <li><b>T+0:</b> 3 حالات متفرقة تُسجَّل في نقطتين إسعاف.</li>
+          <li><b>T+15:</b> 8 حالات خلال 15 دقيقة — بعضهم ذكر نفس صنف/نقطة بيع.</li>
+          <li><b>T+30:</b> شائعة على وسائل التواصل: “تسمم جماعي”.</li>
+          <li><b>T+45:</b> ارتفاع الحالات إلى 15–20 + طلب تغطية إعلامية.</li>
+          <li><b>T+60:</b> قرار: إيقاف/عزل نقطة بيع مشتبه بها + توجيه للجمهور + دعم إسعافي.</li>
+        </ul>
+      </div>
+
+      <h5 style="margin-top:12px;">هـ) نقاط قرار (Decision Points)</h5>
+      <ul>
+        <li>متى تُعلن “اشتباه تفشّي”؟ (عتبة عدد/زمن/تشابه أعراض/نقطة مشتركة).</li>
+        <li>هل تُغلق نقطة بيع فورًا أم تُقيّد أصناف محددة؟</li>
+        <li>ما الرسالة الأولى للجمهور؟ ومتى تُنشر؟</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">و) إجراءات متوقعة (Expected Actions)</h5>
+      <ul>
+        <li>نموذج بيانات سريع: (الوقت، الأعراض، العمر، موقع الحالة، ماذا أكل؟ أين اشترى؟).</li>
+        <li>تجميع الحالات في لوحة متابعة (Line List) + تقدير الاتجاه (يزيد/يثبت/ينخفض).</li>
+        <li>تنسيق عينات/تحقيق غذائي وفق صلاحيات الجهة المختصة.</li>
+        <li>توزيع الموارد: دعم نقاط الإسعاف القريبة من نقطة الاشتباه.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ز) رسالة جماهيرية نموذجية (اختيارية)</h5>
+      <div class="info-box">
+        “نلاحظ زيادة حالات إجهاد/أعراض هضمية لدى بعض الحضور. الفرق الصحية متواجدة لتقديم الخدمة. إذا ظهرت عليك أعراض راجع أقرب نقطة إسعاف. نرجو الالتزام بإرشادات السلامة الغذائية، وسيتم تحديثكم بالمعلومات المؤكدة عند توفرها.”
+      </div>
+
+      <h5 style="margin-top:12px;">ح) التوثيق وDebrief</h5>
+      <ul>
+        <li>ما الذي رُصد مبكرًا؟ وما الذي تأخر؟</li>
+        <li>هل كانت البيانات كافية لاتخاذ قرار؟</li>
+        <li>هل الرسائل كانت موحّدة؟</li>
+        <li>3 تحسينات تشغيلية قابلة للقياس للفعالية القادمة.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Scenario 2 -->
+<div class="section module-amber">
+  <h2 class="section-title"><span class="section-number">②</span> سيناريو: اندفاع حشود مفاجئ (Crowd Surge)</h2>
+  <div class="subsection">
+    <div class="axis-box" style="--axis-color:#ffc107;--axis-bg:rgba(255,193,7,0.10);--axis-title:#7a5a00;">
+      <h5>أ) الخلفية التشغيلية</h5>
+      <p>نقطة جذب/بوابة/مسار ضيق داخل الفعالية. تزايد مفاجئ في التدفق بسبب إعلان/تغيير برنامج/وصول مجموعة كبيرة. تظهر إشارات اختناق: تباطؤ، تكدّس، ارتفاع توتر، تضارب توجيه بين الفرق.</p>
+
+      <h5 style="margin-top:12px;">ب) الهدف من التمرين</h5>
+      <ul>
+        <li>التعرّف على الإشارات المبكرة قبل الوصول للذروة.</li>
+        <li>اتخاذ قرار “تخفيف ضغط” في الوقت المناسب (فتح مسارات بديلة/إيقاف دخول/تفريغ نقطة).</li>
+        <li>توحيد الرسائل بين الأمن/المنظّم/المتطوعين لمنع التضارب.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ج) الأدوار</h5>
+      <ul>
+        <li><b>قائد الحركة/الحشود:</b> يقرر إجراءات التحكم والتوجيه.</li>
+        <li><b>الأمن/تنظيم الدخول:</b> ضبط الدخول/الإغلاق المرحلي.</li>
+        <li><b>الفِرق الميدانية:</b> رصد كثافة/حواجز/توجيه الحشود.</li>
+        <li><b>الإسعاف:</b> جاهزية للاستجابة قرب نقطة الضغط.</li>
+        <li><b>التواصل:</b> رسائل لوحات/مكبرات/شاشات.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">د) تسلسل زمني (TTX)</h5>
+      <div class="alert-box">
+        <ul>
+          <li><b>T+0:</b> ارتفاع التدفق بنسبة ملحوظة باتجاه نقطة واحدة.</li>
+          <li><b>T+10:</b> تباطؤ + تكدس + صعوبة حركة عكسية.</li>
+          <li><b>T+20:</b> سقوط شخص/حالات اختناق بسيطة + توتر وصراخ.</li>
+          <li><b>T+30:</b> انتشار فيديو/شائعة: “خطر تدافع”.</li>
+          <li><b>T+40:</b> قرار: فتح مسار بديل + إيقاف دخول مرحلي + تفريغ نقطة.</li>
+        </ul>
+      </div>
+
+      <h5 style="margin-top:12px;">هـ) نقاط قرار</h5>
+      <ul>
+        <li>متى نوقف الدخول؟ ومتى نفتح مسارات بديلة؟</li>
+        <li>كيف نمنع “الاندفاع نحو مصدر” مع الحفاظ على هدوء الجمهور؟</li>
+        <li>ما الحد الأدنى من الموارد التي تُعاد موضعتها فورًا؟</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">و) إجراءات متوقعة</h5>
+      <ul>
+        <li>تقييم سريع للكثافة عند نقاط الاختناق + منع تداخل اتجاهات الحركة.</li>
+        <li>فتح/تفعيل مسارات بديلة واضحة + لوحات وإرشاد بشري.</li>
+        <li>نشر فرق تهدئة وتوجيه + فصل نقاط الاحتكاك.</li>
+        <li>مساندة إسعافية قرب نقطة الخطر دون إغلاق كامل إلا عند الضرورة.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ز) رسالة جماهيرية نموذجية</h5>
+      <div class="info-box">
+        “لراحتكم وسلامتكم: تم فتح مسار بديل الآن. الرجاء التحرك بهدوء واتباع الإرشادات. لا يوجد ما يدعو للتزاحم. فرق التنظيم والإسعاف متواجدة لخدمتكم.”
+      </div>
+
+      <h5 style="margin-top:12px;">ح) التوثيق وDebrief</h5>
+      <ul>
+        <li>ما أول مؤشر كان يجب التقاطه؟</li>
+        <li>هل كان القرار مبكرًا أم متأخرًا؟</li>
+        <li>هل كانت الرسائل موحّدة؟</li>
+        <li>3 إجراءات وقائية للفعالية القادمة (تصميم مسارات/توزيع نقاط جذب/آلية إيقاف دخول).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Scenario 3 -->
+<div class="section module-red">
+  <h2 class="section-title"><span class="section-number">③</span> سيناريو: تسرب/انسكاب كيميائي (Chemical Spill)</h2>
+  <div class="subsection">
+    <div class="axis-box" style="--axis-color:#dc3545;--axis-bg:rgba(220,53,69,0.10);--axis-title:#7a1f2a;">
+      <h5>أ) الخلفية التشغيلية</h5>
+      <p>حادث تسرب مادة كيميائية داخل/قرب موقع الفعالية (من مركبة خدمة/مستودع/معدة تنظيف). توجد روائح/تهيج/حالات أعراض تنفسية بسيطة. الخطر الأكبر هو الذعر وانتشار معلومات غير مؤكدة.</p>
+
+      <h5 style="margin-top:12px;">ب) الهدف من التمرين</h5>
+      <ul>
+        <li>العزل الأولي وتحديد نطاق آمن دون شلّ حركة الموقع.</li>
+        <li>توحيد القرار بين الجهات (سلامة/إطفاء/صحة/منظّم).</li>
+        <li>تواصل جماهيري يوازن بين الشفافية والتهدئة.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ج) تسلسل زمني (TTX)</h5>
+      <div class="alert-box">
+        <ul>
+          <li><b>T+0:</b> بلاغ عن رائحة قوية + انسكاب.</li>
+          <li><b>T+10:</b> 2–3 حالات تهيج/سعال قرب الموقع.</li>
+          <li><b>T+20:</b> ازدحام فضولي + تصوير + شائعات.</li>
+          <li><b>T+30:</b> قرار: عزل محيط + تحويل الحركة + رسالة للجمهور.</li>
+          <li><b>T+45:</b> تقييم مادة محتملة + دعم طبي + تحديث موحد.</li>
+        </ul>
+      </div>
+
+      <h5 style="margin-top:12px;">د) نقاط قرار</h5>
+      <ul>
+        <li>ما حجم العزل المبدئي؟ وكيف يُعدّل مع التقييم؟</li>
+        <li>ما الذي يُقال للجمهور؟ وما الذي يؤجل حتى التحقق؟</li>
+        <li>كيف تمنع “الفضول/التجمهر” حول منطقة الحادث؟</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">هـ) إجراءات متوقعة</h5>
+      <ul>
+        <li>إيقاف مصدر التسرب إن أمكن بأمان + منع الاقتراب.</li>
+        <li>تحويل الحركة بعيدًا عن نقطة الخطر.</li>
+        <li>فرز صحي للحالات البسيطة + إحالة عند الحاجة.</li>
+        <li>إدارة معلومات موحّدة: قناة واحدة للتحديث.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">و) Debrief</h5>
+      <ul>
+        <li>هل اتسع العزل أكثر من اللازم أم أقل؟</li>
+        <li>هل كانت الرسالة الأولى مناسبة؟</li>
+        <li>كيف نمنع تكرار الحادث (إجراءات سلامة/تخزين/مسارات خدمة)؟</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Scenario 4 -->
+<div class="section module-blue">
+  <h2 class="section-title"><span class="section-number">④</span> سيناريو: موجة حر (Heatwave)</h2>
+  <div class="subsection">
+    <div class="axis-box" style="--axis-color:#667eea;--axis-bg:rgba(102,126,234,0.10);--axis-title:#1e3c72;">
+      <h5>أ) الخلفية التشغيلية</h5>
+      <p>فعالية خارجية في ساعات ذروة الحرارة. تبدأ حالات إجهاد حراري/دوخة بالظهور، ثم ترتفع تدريجيًا. الخطر يتصاعد إذا لم تُدار نقاط الماء والظل والتبريد وتوزيع الإسعاف.</p>
+
+      <h5 style="margin-top:12px;">ب) الهدف من التمرين</h5>
+      <ul>
+        <li>التعرّف على الإنذار المبكر قبل زيادة الإصابات.</li>
+        <li>توزيع الموارد (ماء/تبريد/إسعاف) وفق نمط الكثافة.</li>
+        <li>قرارات تخفيف (فتح مساحات ظل/تعديل تدفق/توعية) قبل الوصول لمرحلة حرجة.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">ج) تسلسل زمني (TTX)</h5>
+      <div class="alert-box">
+        <ul>
+          <li><b>T+0:</b> ارتفاع الحرارة + شكاوى متفرقة.</li>
+          <li><b>T+20:</b> 5 حالات إغماء/إجهاد حراري خلال 20 دقيقة.</li>
+          <li><b>T+35:</b> نقص ماء في منطقة مزدحمة + توتر.</li>
+          <li><b>T+50:</b> قرار: تعزيز نقاط الماء/تبريد + تحويل تدفق + رسائل توعوية.</li>
+          <li><b>T+70:</b> تقييم أثر القرار + تحديث موارد حسب المناطق الأكثر عرضة.</li>
+        </ul>
+      </div>
+
+      <h5 style="margin-top:12px;">د) نقاط قرار</h5>
+      <ul>
+        <li>متى نُعلن “مستوى حرارة خطر” ونفعّل خطة التخفيف؟</li>
+        <li>أين توضع نقاط الماء/التبريد لضمان وصولها للفئات الأكثر عرضة؟</li>
+        <li>ما قرار واحد سريع يقلل الإصابات فورًا؟</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">هـ) إجراءات متوقعة</h5>
+      <ul>
+        <li>زيادة رسائل التوعية (شرب ماء/ظل/مراقبة أعراض).</li>
+        <li>إعادة توزيع الماء والفرق الإسعافية إلى مناطق أعلى كثافة.</li>
+        <li>فتح مسارات لتخفيف التكدس + مساحات ظل/مراوح/تبريد.</li>
+        <li>متابعة بيانات الحالات بالزمن للتأكد من فعالية التدخل.</li>
+      </ul>
+
+      <h5 style="margin-top:12px;">و) Debrief</h5>
+      <ul>
+        <li>هل كان التدخل مبكرًا؟</li>
+        <li>هل الموارد وصلت للمناطق الصحيحة؟</li>
+        <li>ما التحسينات الوقائية للفعالية القادمة (توقيت/ماء/ظل/توزيع)؟</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section module-green">
+  <h2 class="section-title"><span class="section-number">✅</span> كيف يستفيد المتدرب دون ضغط؟</h2>
+  <div class="subsection">
+    <div class="success-box">
+      <p><b>قاعدة ذهبية:</b> اختر سيناريو واحد فقط.</p>
+      <p>اكتب إجابات مختصرة لـ 6 أسئلة: (إنذار مبكر، قرار أول، موارد، تواصل، تنسيق، توثيق تعلّم). هذا وحده يُحوّل الفهم النظري إلى فهم متين يُساعد حتى في اختبار MCQ.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="footer">
+<div class="footer-section">
+<h3 style="font-size: 1.5em; margin-bottom: 20px;">📚 المصدر التعليمي</h3>
+<div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 10px; margin: 20px 0;">
+<div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+<p style="font-weight: bold; margin-bottom: 10px;">📌 يُستخدم المصدر لفهم:</p>
+<ul style="text-align: right; list-style-position: inside;">
+<li>أهداف الفعاليات ودوافع التنظيم</li>
+<li>مبررات التنظيم والجدوى</li>
+<li>البعد الإداري والتخطيطي للفعالية</li>
+</ul>
+</div>
+<div style="background: rgba(255,204,0,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+<p style="font-weight: bold; margin-bottom: 10px;">🧠 ملاحظة أكاديمية مهمة:</p>
+<p>هذا المصدر ليس مرجع سلامة حشود متخصص، لكنه قاعدة معرفية لفهم الهدف الإداري قبل الانتقال إلى:</p>
+<ul style="text-align: right; list-style-position: inside; margin-top: 10px;">
+<li>سلامة الحشود المتخصصة</li>
+<li>إدارة المخاطر الشاملة</li>
+<li>التخطيط الأمني المتقدم</li>
+</ul>
+</div>
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 10px; margin: 30px 0;">
+<p style="font-size: 1.3em; font-weight: bold; margin-bottom: 15px;">✍️ إعداد</p>
+<p style="font-size: 1.4em; font-weight: bold; margin-bottom: 10px;">أنس العضيبي</p>
+<p style="font-size: 1.1em; margin-top: 10px;">
+                        📱 جوال: <span style="font-weight: bold; direction: ltr; display: inline-block;">0505530803</span>
+</p>
+</div>
+<p style="margin-top: 30px; font-size: 1.2em; opacity: 0.9;">
+                    تم إعداد هذا الدليل لأغراض تدريبية وتعليمية
+                </p>
+<p style="margin-top: 10px; font-size: 0.9em; opacity: 0.7;">
+                    © 2025 - دليل إدارة الفعاليات وسلامة الحشود
+                </p>
+</div>
+</div>
+</div>
+</body>
+</html>
